@@ -1,7 +1,11 @@
 package day04;
 
-public class ForQuiz {
+public class ForQuiz { // 6강_24페이지 퀴즈
     public static void main(String[] args) {
+        /*
+        1. 2~9단중 랜덤 구구단이 등장하도록 코딩
+        2. for 문과 while 문으로 각각 구현
+        */
 
         // 2단 구구단
         /*int dan = 2;
@@ -24,8 +28,16 @@ public class ForQuiz {
         System.out.printf("랜덤 구구단 %d단\n", level);
         System.out.println("----------------------------");
 
+        /*// for 문
         for (int line = 1; line <= 9; line++) {
             System.out.printf("%d X %d = %d\n", level, line, level*line);
+        }*/
+
+        // while 문
+        int line = 1;
+        while (line <= 9) {
+            System.out.printf("%d X %d = %d\n", level, line, level*line);
+            line++;
         }
 
     }

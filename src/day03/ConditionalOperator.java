@@ -2,7 +2,7 @@ package day03;
 
 import java.util.Scanner;
 
-public class ConditionalOperator {
+public class ConditionalOperator { // 4강_3.삼항연산자(조건연산자)
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

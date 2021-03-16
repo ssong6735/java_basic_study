@@ -2,7 +2,7 @@ package day03;
 
 import java.util.Scanner;
 
-public class SwtichExample {
+public class SwitchExample { // 6강_1.조건문(다중분기조건문)
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);

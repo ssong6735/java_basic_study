@@ -1,6 +1,6 @@
 package day01;
 
-public class Variable { // class 이름은 파일명과 동일해야한다. (대소문자구분)
+public class Variable { // 2강_2.변수 //class 이름은 파일명과 동일해야한다. (대소문자구분)
     public static void main(String[] args) {
 
         // 변수 선언
@@ -12,7 +12,7 @@ public class Variable { // class 이름은 파일명과 동일해야한다. (대
 
         int tripleNumber = number * 3;
         System.out.println("tripleNumber = " + tripleNumber);
-        
+
         String name = "김철수"; // 문자열은 무조건 "" 사용
         System.out.println("name = " + name);
 

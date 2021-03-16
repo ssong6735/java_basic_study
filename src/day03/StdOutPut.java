@@ -1,6 +1,6 @@
 package day03;
 
-public class StdOutPut {
+public class StdOutPut { // 5강_1.표준출력
     public static void main(String[] args) {
 
         String dog = "멍멍이";

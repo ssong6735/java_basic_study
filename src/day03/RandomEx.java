@@ -1,6 +1,6 @@
 package day03;
 
-public class RandomEx {
+public class RandomEx { // 5강_3.난수생성
     public static void main(String[] args) {
 
         // 랜덤 정수 생성방법

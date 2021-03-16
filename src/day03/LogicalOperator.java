@@ -1,6 +1,6 @@
 package day03;
 
-public class LogicalOperator {
+public class LogicalOperator { // 4강_2.이항연산자(논리연산자)
     public static void main(String[] args) {
 
         int x = 10, y = 20;

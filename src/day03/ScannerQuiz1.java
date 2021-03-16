@@ -2,7 +2,7 @@ package day03;
 
 import java.util.Scanner;
 
-public class ScannerQuiz1 {
+public class ScannerQuiz1 { // 5강_11페이지 퀴즈1
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

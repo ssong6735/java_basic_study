@@ -1,6 +1,6 @@
 package day02;
 
-public class Casting2 {
+public class Casting2 { // 3강_2.형변환2
 
     public static void main(String[] args) {
 

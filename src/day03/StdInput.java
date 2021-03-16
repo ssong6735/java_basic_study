@@ -3,7 +3,7 @@ package day03;
 //1. 스캐너 api 불러오기
 import java.util.Scanner;
 
-public class StdInput {
+public class StdInput { // 5강_2.표준입력
     public static void main(String[] args) {
 
 //        int data = System.in.read();

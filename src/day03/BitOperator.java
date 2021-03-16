@@ -1,6 +1,6 @@
 package day03;
 
-public class BitOperator {
+public class BitOperator { // 4강_2.이항연산자(비트연산자)
     public static void main(String[] args) {
 
         // 비트 연산

@@ -2,7 +2,7 @@ package day04;
 
 import java.util.Scanner;
 
-public class LoopQuiz {
+public class LoopQuiz { // 6강_36페이지 퀴즈
     public static void main(String[] args) {
 
         /*

@@ -1,6 +1,6 @@
 package day01;
 
-public class dataType {
+public class dataType { // 3강_데이터타입
 
     public static void main(String[] args) {
         // 정수형 1.byte(1byte), 2.short(2byte), 3.int(4byte), 4.long(8byte)

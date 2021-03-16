@@ -2,7 +2,7 @@ package day04;
 
 import java.util.Scanner;
 
-public class DoWhileExample {
+public class DoWhileExample { // 6강_2.반복문(do~while)
     public static void main(String[] args) {
 
         // 입력받는 값을 계속 더하다가 0을 입력받으면 멈추기
