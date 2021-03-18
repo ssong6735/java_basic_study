@@ -13,7 +13,6 @@ public class ArraySearchQuiz { // 7강_1. 배열 탐색 quiz
         Scanner sc = new Scanner(System.in);
 
         System.out.println("# 변경 전 정보: [영웅재중, 최강창민, 시아준수, 믹키유천, 유노윤호]");
-        System.out.println("- 수정할 멤버의 이름을 입력하세요.");
 
         String[] tvxq = {"영웅재중", "최강창민", "시아준수", "믹키유천", "유노윤호"};
 
