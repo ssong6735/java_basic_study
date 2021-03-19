@@ -32,9 +32,10 @@ public class Roulette { // 룰렛 게임
         // 참여 인원 이름 출력
         System.out.println(Arrays.toString(players) + " 참가!");
 
-        System.out.print("\n실탄 개수를 입력 (6미만) ==> ");
         // 총알 개수 입력받기
+        System.out.print("\n실탄 개수를 입력 (6미만) ==> ");
         int bulletNum = sc.nextInt();
+        sc.nextLine(); // 위에서 발생한 nextInt 의 \n 을 처리하는 구문
 
         // 탄창 배열을 만든다 (공간 6개)
         boolean[] magazine = new boolean[6];
@@ -44,7 +45,7 @@ public class Roulette { // 룰렛 게임
         while (successCount < bulletNum) { // 총알이 모두 정해진 수만큼 장전 될때까지 반복
             // 랜덤 실탄 위치 결정 (0~5)
             int position = (int) (Math.random() * magazine.length);
-            if (magazine[position] == false) { // 만약에 실탄이 비어있다면
+            if (magazine[position]) { // 만약에 실탄이 비어있다면
                 magazine[position] = true; // 장전해라
                 successCount++; // 장전횟수를 올려라
             }
@@ -55,19 +56,70 @@ public class Roulette { // 룰렛 게임
         System.out.println("실탄을 넣고 탄창을 무작위로 돌립니다.");
 
         // 첫번째 턴 플레이어 랜덤 결정
-        int turn = (int) (Math.random() * players.length);
-        String turnName = players[turn];
-        System.out.printf("총을 돌렸습니다. %s부터 시작합니다.\n", turnName);
+        // 턴 수를 저장할 변수를 선언(players 배열의 인덱스)
+        // ex) 현재 턴수: 0번 이면 첫번째 플레이어의 턴
+        int turn = (int) (Math.random() * playerNum);
 
-        // 턴 시작
-        System.out.printf("\n[%s의 턴!] 탄창을 무작위로 돌립니다.\n", turnName);
-        System.out.println("# 엔터를 누르면 격발합니다.");
-        sc.nextLine();
-        sc.nextLine();
+        System.out.printf("%s부터 시작합니다.\n", players[turn]);
 
+        // 게임이 종료될 때까지 반복
+        while (true) {
+            // 격발 전 총알 위치를 랜덤으로 설정
+            int bulletPosition = (int) (Math.random() * magazine.length);
+            System.out.printf("\n[%s의 턴!] 탄창을 무작위로 돌립니다.\n", players[turn]);
 
+            System.out.println("# 엔터를 누르면 격발합니다.");
+            sc.nextLine(); // 실제로 엔터를 입력받는 기능
 
+            // 사망 판정
+            if (magazine[bulletPosition]) {
+                // 사망
+                System.out.printf("\n빵!! [%s]님 사망....\n", players[turn]);
+                // 사망자를 배열에서 삭제하고
+                for (int i = turn; i < players.length-1; i++) {
+                    players[i] = players[i+1];
+                }
+                String[] temp = new String[players.length-1];
+                for (int i = 0; i < temp.length; i++) {
+                    temp[i] = players[i];
+                }
+                players = temp;
+                temp = null;
+                playerNum--;
 
+                // 탄창배열에서 총알이 나간 위치를 수정
+                magazine[bulletPosition] = false;
+                bulletNum--;
+
+                // 게임 종료 조건 판단
+                // 남은 플레이어가 1명일 때, 총알이 모두 소진되었을 때
+                if (playerNum == 1) {
+                    System.out.println("단 한명만 생존했습니다. 게임을 종료합니다.");
+                    System.out.println("최후 생존자: " + players[0]);
+                    break;
+                } else if (bulletNum == 0) {
+                    System.out.println("총알을 모두 소진했습니다. 게임을 종료합니다.");
+                    System.out.println("남은 인원 정보: " + Arrays.toString(players));
+                    // 혹시 사망자가 마지막 번째 플레이어라면 turn 을 0으로 조정
+                    if (turn == playerNum) {
+                        turn = 0;
+                    }
+                    continue;
+                }
+
+            } else {
+                // 생존
+                // 턴을 넘겨야 한다.
+                System.out.println("휴.... 살았습니다!");
+                // turn 인덱스를 조정
+                if (turn == players.length - 1) {
+                    // 마지막번 플레이어는 다음턴을 0으로 조절
+                    turn = 0;
+                } else {
+                    turn++;
+                }
+            }
+        }
 
 
     }
