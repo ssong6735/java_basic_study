@@ -13,8 +13,5 @@ public class LogicalOperator { // 4강_2.이항연산자(논리연산자)
         System.out.println("x = " + x);
         System.out.println("y = " + y);
 
-
-
-
     }
 }

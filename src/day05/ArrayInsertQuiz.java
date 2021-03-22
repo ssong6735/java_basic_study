@@ -7,7 +7,7 @@ public class ArrayInsertQuiz { // 7강_1. 배열 insert quiz
     public static void main(String[] args) {
 
         // 음식 이름을 입력할때마다 배열의 뒤에 추가
-        // 그만 을 입력하면 종료하고 배열 출력력
+        // 그만 을 입력하면 종료하고 배열 출력
 
         Scanner sc = new Scanner(System.in);
 

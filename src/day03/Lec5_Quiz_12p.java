@@ -32,7 +32,7 @@ public class Lec5_Quiz_12p { // 5강_12페이지 퀴즈2
 
         String food;
 
-        if (money >= 5000) {
+        /*if (money >= 5000) {
             food = "김치찌개";
         } else if (money >= 2500) {
             food = "라면";
@@ -40,6 +40,14 @@ public class Lec5_Quiz_12p { // 5강_12페이지 퀴즈2
             food = "굶어!";
         } else { // 문제에 1원부터 2500원 미만에 대한 얘기가 없음.
             food = "1원부터 2500원 미만";
+        }*/
+
+        if (money >= 5000) {
+            food = "김치찌개";
+        } else if (money >= 2500) {
+            food = "라면";
+        } else {
+            food = "굶어!";
         }
         System.out.println("선택된 음식: " + food);
 
