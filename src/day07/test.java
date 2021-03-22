@@ -1,6 +1,7 @@
 package day07;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class test {
     public static void main(String[] args) {
@@ -54,28 +55,28 @@ public class test {
 
                     break;
                 case 3:
-                    while (true) {
                         // 찾을 책번호 입력받기
                         System.out.println("찾으려는 책의 책번호를 입력하세요.");
+                    while (true) {
                         System.out.print("> ");
                         String bookName = sc.next();
 
                         // books 배열안에서 책번호가 있는 배열 찾기
-                        for (int i = 0; i < listLength; i++) {
+                        for (int idx = 0; idx < listLength; idx++) {
                             String temp2;
-                            temp2 = books[i][0];
+                            temp2 = books[idx][0];
 
                             // 입력한 책번호가 배열안에 있는 책번호와 같으면 해당 배열 출력
                             if (temp2.equals(bookName)) {
-                                System.out.println(Arrays.toString(books[i]));
+                                System.out.println(Arrays.toString(books[idx]));
                                 break;
+                            } else {
+                                System.out.println("못찾음");
+                                continue;
                             }
-                            System.out.println();
                         }
-
                     }
-
-                    break;
+//                    break;
                 case 4:
 
                     break;
@@ -93,7 +94,6 @@ public class test {
 
         }
 
-        sc.close();
 
     }
 }

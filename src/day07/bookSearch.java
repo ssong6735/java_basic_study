@@ -32,29 +32,34 @@ public class bookSearch { // 3. 책검색
                 {"D300", "컴퓨터책제목", "컴퓨터저자", "컴퓨터출판사", "컴퓨터가격", "컴퓨터선호도"}
         };
 
-        System.out.println("등록된 책 수: " + books.length);
+//        System.out.println("등록된 책 수: " + books.length);
+//        System.out.println("책번호: " + books[0][0]); // 원하는 책의 책번호: books[찾을 책이 있는 인덱스번호][0]
 
-        System.out.println("책번호: " + books[0][0]); // 원하는 책의 책번호: books[찾을 책이 있는 인덱스번호][0]
-
+        // 찾을 책번호 입력받기
+        System.out.println("찾으려는 책의 책번호를 입력하세요.");
         while (true) {
-            // 찾을 책번호 입력받기
-            System.out.println("찾으려는 책의 책번호를 입력하세요.");
             System.out.print("> ");
             String bookName = sc.next();
 
+            // 순차 탐색 알고리즘
+            boolean searchBooks = false;
+
             // books 배열안에서 책번호가 있는 배열 찾기
-            for (int i = 0; i < books.length; i++) {
+            for (int idx = 0; idx < books.length; idx++) {
                 String temp2;
-                temp2 = books[i][0];
+                temp2 = books[idx][0];
 
                 // 입력한 책번호가 배열안에 있는 책번호와 같으면 해당 배열 출력
                 if (temp2.equals(bookName)) {
-                    System.out.println(Arrays.toString(books[i]));
+                    System.out.println(Arrays.toString(books[idx]));
+                    searchBooks = true;
                     break;
                 }
-                System.out.println();
+                continue;
             }
 
+            
+            break;
         }
 
 
