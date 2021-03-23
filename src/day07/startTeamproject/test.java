@@ -1,4 +1,4 @@
-package day07;
+package day07.startTeamproject;
 
 import java.util.Arrays;
 import java.util.Scanner;
