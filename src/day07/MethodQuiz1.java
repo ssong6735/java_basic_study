@@ -1,6 +1,6 @@
 package day07;
 
-public class MethodQuiz1 {
+public class MethodQuiz1 { // 8강_17페이지 퀴즈
 
     static int calcDivisor(int number) {
         int divTotal = 0; // 약수 총합 저장 변수

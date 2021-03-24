@@ -1,6 +1,6 @@
 package day07;
 
-public class MethodQuiz2 {
+public class MethodQuiz2 { // 8강_18페이지 퀴즈
 
     public static void main(String[] args) {
         int[] numbers = {57, 89, 78, 91, 93, 47};
