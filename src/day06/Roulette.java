@@ -1,16 +1,31 @@
 package day06;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Roulette { // 룰렛 게임
+
+    private static Scanner sc = new Scanner(System.in);
+
+    // 예외 처리를 위한 메서드 (기존 sc.nextInt 를 safeNextInt 로 변경해준다)
+    public static int safeNextInt(String question) {
+        while (true) {
+            try {
+                System.out.print(question);
+                return sc.nextInt();
+            } catch (InputMismatchException e) {
+                sc.nextLine(); // nextInt 의 공백 처리때문에 넣어줌
+                System.out.println("정수로만 입력하세요.");
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
 
-        System.out.print("게임 인원 (2 ~ 4명) ==> ");
         // 총 참여인원 수
-        int playerNum = sc.nextInt();
+        int playerNum = safeNextInt("게임 인원 (2 ~ 4명) ==> ");
 
         // 인원 수의 범위가 적당한지 판단
         if (playerNum < 2 || playerNum > 4) {
@@ -33,9 +48,14 @@ public class Roulette { // 룰렛 게임
         System.out.println(Arrays.toString(players) + " 참가!");
 
         // 총알 개수 입력받기
-        System.out.print("\n실탄 개수를 입력 (6미만) ==> ");
-        int bulletNum = sc.nextInt();
+        int bulletNum = safeNextInt("\n실탄 개수를 입력 (6미만) ==> ");
         sc.nextLine(); // 위에서 발생한 nextInt 의 \n 을 처리하는 구문
+
+        // 총알 개수가 6보다 크게 들어왔을때 처리
+        if (bulletNum > 6) {
+            bulletNum = safeNextInt("\n실탄 개수를 다시 입력해주세요. (6미만) ==> ");
+            sc.nextLine(); // 위에서 발생한 nextInt 의 \n 을 처리하는 구문
+        }
 
         // 탄창 배열을 만든다 (공간 6개)
         boolean[] magazine = new boolean[6];
@@ -45,9 +65,9 @@ public class Roulette { // 룰렛 게임
         while (successCount < bulletNum) { // 총알이 모두 정해진 수만큼 장전 될때까지 반복
             // 랜덤 실탄 위치 결정 (0~5)
             int position = (int) (Math.random() * magazine.length);
-            if (magazine[position]) { // 만약에 실탄이 비어있다면
-                magazine[position] = true; // 장전해라
-                successCount++; // 장전횟수를 올려라
+            if (magazine[position] == false) { //만약에 실탄이 비어있다면
+                magazine[position] = true; //장전해라
+                successCount++; //장전횟수를 올려라
             }
         }
 //        System.out.println("탄창: " + Arrays.toString(magazine));
@@ -76,10 +96,10 @@ public class Roulette { // 룰렛 게임
                 // 사망
                 System.out.printf("\n빵!! [%s]님 사망....\n", players[turn]);
                 // 사망자를 배열에서 삭제하고
-                for (int i = turn; i < players.length-1; i++) {
-                    players[i] = players[i+1];
+                for (int i = turn; i < players.length - 1; i++) {
+                    players[i] = players[i + 1];
                 }
-                String[] temp = new String[players.length-1];
+                String[] temp = new String[players.length - 1];
                 for (int i = 0; i < temp.length; i++) {
                     temp[i] = players[i];
                 }
@@ -98,9 +118,13 @@ public class Roulette { // 룰렛 게임
                     System.out.println("최후 생존자: " + players[0]);
                     break;
                 } else if (bulletNum == 0) {
-                    System.out.println("총알을 모두 소진했습니다. 게임을 종료합니다.");
+                    System.out.println("총알이 모두 소진되었습니다. 게임을 종료합니다.");
                     System.out.println("남은 인원 정보: " + Arrays.toString(players));
-                    // 혹시 사망자가 마지막 번째 플레이어라면 turn 을 0으로 조정
+                    break;
+                } else {
+                    System.out.println("\n남은 인원으로 게임을 계속 진행합니다.");
+                    System.out.println("남은 인원 정보: " + Arrays.toString(players));
+                    //혹시 사망자가 마지막플레이어면 turn을 0으로 조정
                     if (turn == playerNum) {
                         turn = 0;
                     }
